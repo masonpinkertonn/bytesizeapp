@@ -5,14 +5,121 @@ body {
 
 .header {
   color: white;
+  display: flex;
   height: 80px;
+  align-items: center;
+  column-gap: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
+.inner {
+  height: 80px;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px dotted gray;
+  position: fixed;
 }
 
 .header span {
   font-size: 30px;
   font-weight: 500;
+}
+
+.signinform {
+  background-color: white;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 25px;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+input {
+  width:300px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+}
+
+input::placeholder {
+  color: white;
+  opacity: 75%;
+}
+
+button {
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+
+.horizontal_line {
+  width: 300px;
+  height: 2px;
+  background-color: black;
+}
+
+.mainpage {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pfp {
+  width: 50px;
+  height: 50px;
+}
+
+.lout {
+  position: fixed;
+  right: 0;
+  top: 20px;
+  width: 80px;
+  height: 40px;
+  background-color: white;
+  box-shadow: none;
+  color: black;
+}
+
+.markdown {
+  color: white
+}
+
+.flashcard {
+  width: 500px;
+  height: 400px;
+  background-color: darkgray;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.flashZone {
+  width: 100vw;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.frontcard {
+  color: white;
+}
+
+.counter {
+  color: white;
 }
