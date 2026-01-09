@@ -14,7 +14,7 @@ import Anthropic from "@anthropic-ai/sdk"
 
 const image = await fs.readFile(img)*/
 
-console.log("My key: " + process.env.anthroKey)
+export const ocrKey = process.env.ocrKey
 
 const anthropic = new Anthropic({
         apiKey: process.env.anthroKey,

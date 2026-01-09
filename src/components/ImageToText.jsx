@@ -3,6 +3,8 @@ import {getDocs, collection, addDoc, deleteDoc, doc, getDoc, updateDoc} from "fi
 import Anthropic from "@anthropic-ai/sdk"
 import ReactMarkdown from "react-markdown"
 
+import { ocrKey } from "../ai"
+
 import { db } from "../config/firebase-config"
 
 import { getAI, getAITitle } from "../ai"
@@ -72,7 +74,7 @@ export default function ImageToText(props) {
     const checker = async () => {
         fetch('https://www.handwritingocr.com/api/v3/documents?page=1&per_page=100', {
             headers: {
-                'Authorization': 'Bearer 1947|zHEktkR25XvQK5Y8Yy4mdRXqOjSD4qEEpMsh1Mgm2d07dd86',
+                'Authorization': `Bearer ${ocrKey}`,
                 'Accept': 'application/json'
             }
         }).then(response => response.json()).then(data => setStatus(data.documents[0].status))
@@ -97,7 +99,7 @@ export default function ImageToText(props) {
         //console.log("Checking.")
         fetch('https://www.handwritingocr.com/api/v3/documents?page=1&per_page=100', {
             headers: {
-                'Authorization': 'Bearer 1947|zHEktkR25XvQK5Y8Yy4mdRXqOjSD4qEEpMsh1Mgm2d07dd86',
+                'Authorization': `Bearer ${ocrKey}`,
                 'Accept': 'application/json'
             }
         }).then(response => response.json()).then(data => 
@@ -128,7 +130,7 @@ export default function ImageToText(props) {
         setIsProcessingShow(true)
             fetch(`https://www.handwritingocr.com/api/v3/documents/${imgData.id}`, {
                 headers: {
-                    'Authorization': 'Bearer 1947|zHEktkR25XvQK5Y8Yy4mdRXqOjSD4qEEpMsh1Mgm2d07dd86',
+                    'Authorization': `Bearer ${ocrKey}`,
                     'Accept': 'application/json'
                 }
             }).then(response => response.json()).then(data => {
@@ -217,7 +219,7 @@ export default function ImageToText(props) {
         fetch("https://www.handwritingocr.com/api/v3/documents", {
             method: "POST",
             headers: {
-                "Authorization": "Bearer 1947|zHEktkR25XvQK5Y8Yy4mdRXqOjSD4qEEpMsh1Mgm2d07dd86",
+                "Authorization": `Bearer ${ocrKey}`,
                 "Accept": "application/json"
             },
             body: formData
