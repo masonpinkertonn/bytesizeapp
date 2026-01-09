@@ -164,3 +164,21 @@ button {
   align-items: center;
   flex-direction: column;
 }
+
+.factarea {
+  width: 100vw;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.factcard {
+  width: 500px;
+  background-color: gray;
+  border-radius: 3px;
+  color: black;
+  text-align: center;
+}

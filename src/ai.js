@@ -40,6 +40,22 @@ export async function getAI(notesdata) {
     return msg.content[0].text
 }
 
+export async function getAIFact(notesdata) {
+
+    const msg = await anthropic.messages.create({
+        model: "claude-sonnet-4-5",
+        max_tokens: 1000,
+        messages: [
+            {
+                role: "user",
+                content: "Come up with a NEW fun and interesting fact completely unrelated to any older ones you generated. Make the fact pretty long, with context when necessary, but not crazy long. About a paragraph worth of info. Only give the paragraph, no other words."
+            }
+        ]
+    })
+
+    return msg.content[0].text
+}
+
 export async function getAITitle(notesdata) {
     const notes = notesdata.join("...newline...")
 

@@ -9,12 +9,15 @@ import SetCard from "./components/SetCard"
 import SetsZone from "./components/SetsZone"
 import { anthroKey, ocrKey } from "./ai"
 import { signOut } from "firebase/auth"
+import StudyBreak from "./components/studybreak"
 
 export default function App() {
   const [userList, setUserList] = useState([])
   const [notesList, setNotesList] = useState([])
 
   const ogMount = useRef(false)
+
+  const [isBreak, setIsBreak] = useState(false)
 
   const [signedIn, setSignedIn] = useState(false)
 
@@ -184,13 +187,16 @@ export default function App() {
       {userName.length > 0 && <h1>Lets go</h1>}
 
       {userName.length > 0 && <div className="chooser">
-        <button onClick={() => setIsSets(prev => !prev && !isUpload)}>My Sets</button>
-        <button onClick={() => setIsUpload(prev => !prev && !isSets)}>Upload Files</button>
+        <button onClick={() => setIsSets(prev => !prev && !isUpload && !isBreak)}>My Sets</button>
+        <button onClick={() => setIsUpload(prev => !prev && !isSets && !isBreak)}>Upload Files</button>
+        <button onClick={() => setIsBreak(prev => !prev && !isSets && !isUpload)}>Take a study break</button>
       </div>}
 
       {isSets && <SetsZone userName={userName} setNum={setNum} setMapper={setMapper}/>}
 
       {isUpload && <ImageToText username={userName} coll={notesCollectionRef} email={email}/>}
+
+      {isBreak && <StudyBreak />}
     </>
   )
 }
